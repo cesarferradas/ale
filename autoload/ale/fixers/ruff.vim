@@ -59,7 +59,7 @@ function! ale#fixers#ruff#FixForVersion(buffer, version) abort
     " when --stdin-filename present, ruff will use it for proj root resolution
     " https://github.com/charliermarsh/ruff/pull/1281
     let l:fname = expand('#' . a:buffer . '...')
-    call add(l:cmd, '--stdin-filename '.ale#Escape(ale#path#Simplify(l:fname)))
+    call add(l:cmd, '--stdin-filename %s')
 
     call add(l:cmd, '--fix')
 
